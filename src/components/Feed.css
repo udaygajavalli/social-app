@@ -1,0 +1,58 @@
+.feed {
+  column-gap: 10px;
+  column-count: 4;
+}
+
+.post {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin-bottom: 10px;
+  break-inside: avoid;
+}
+
+.post-image {
+  width: 100%;
+  grid-row: 1 / -1;
+  grid-column: 1;
+}
+
+.post-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.post-info p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+}
+
+.post-actions span {
+  margin-right: 10px;
+  color: #ff0000; /* Like and comment icons color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .feed {
+    column-count: 4; /* More columns on larger screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .feed {
+    column-count: 2; /* Fewer columns on smaller screens */
+  }
+}
+
+@media (max-width: 560px) {
+  .feed {
+    column-count: 1; /* Single column layout for mobile */
+  }
+}
