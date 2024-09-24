@@ -25,7 +25,13 @@
 
 .post-info p {
   margin: 0;
+  font-size: 0.8rem;
   font-weight: bold;
+}
+
+.likeBtn {
+  all: unset;
+  cursor: pointer;
 }
 
 .post-actions {

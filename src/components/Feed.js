@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Feed.css';
 
 function Feed() {
-  const posts = [
+  const [posts, updatePosts] = useState([
     {
       id: 1,
       username: 'nature_lover',
@@ -213,7 +213,23 @@ function Feed() {
       likes: 903,
       comments: 110,
     },
-  ];
+  ]);
+
+  const incrementLikes = (id) => {
+    return () => {
+      updatePosts(
+        posts.map((post) => {
+          if (post.id === id) {
+            return {
+              ...post,
+              likes: post.likes + 1,
+            };
+          }
+          return post;
+        })
+      );
+    };
+  };
 
   return (
     <div>
@@ -232,7 +248,12 @@ function Feed() {
             <div className="post-info">
               <p>{post.username}</p>
               <div className="post-actions">
-                <span>❤️ {post.likes}</span>
+                <button
+                  className="likeBtn"
+                  onClick={incrementLikes(post.id)}
+                >
+                  ❤️ {post.likes}
+                </button>
                 <span>💬 {post.comments}</span>
               </div>
             </div>
